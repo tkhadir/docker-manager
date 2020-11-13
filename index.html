@@ -7,10 +7,15 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"
+      data-auto-a11y="true"
+    ></script>
     <title>Docker-manager</title>
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-secondary">
+    <nav class="navbar navbar-dark bg-primary">
+        <img src="./img/logo.png" width="30" height="30" class="d-inline-block align-top" alt=""/>
         <span class="navbar-brand mb-0 h1" id="msg">Docker-manager</span>
     </nav>
     <div class="row">
@@ -19,19 +24,39 @@
                 Images
             </div>
             <div class="card-body">
-                <ul class="list-group" id="images-list">
-                </ul>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Tag</th>
+                        <th scope="col">Created</th>
+                      </tr>
+                    </thead>
+                    <tbody id="images-list">         
+                    </tbody>
+                  </table>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="card" style="width: 100%;">
             <div class="card-header text-white bg-primary mb-3">
-                Running
+                Containers
             </div>
             <div class="card-body">
-                <ul class="list-group" id="containers-running-list">
-                </ul>
+                <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Tag</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">start</th>
+                      <th scope="col">stop</th>
+                    </tr>
+                  </thead>
+                  <tbody id="containers-list">
+                  </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -41,7 +66,6 @@
                 Deploy
             </div>
             <div class="card-body">
-                
             </div>
         </div>
     </div>
@@ -59,6 +83,8 @@
     <script src="./script.js"></script>
     <script>
         //setInterval(() => refresh(), 2000)
+        fetchImages()
+        fetchContainers()
     </script>
   </body>
 </html>
